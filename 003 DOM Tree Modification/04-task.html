@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td, th {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /*
+        Задание:
+        Создайте таблицу (table, tr, td) на основе массива объектов с именем source. Каждый объект - отдельная строка таблицы. Свойство month - значение для первой колонок.
+        Свойство amont - значение для второй колонки.
+        */
+
+        let source = [
+            {
+                month: "Январь",
+                amount: 20
+            },
+            {
+                month: "Февраль",
+                amount: 140
+            },
+            {
+                month: "Март",
+                amount: 115
+            },
+            {
+                month: "Апрель",
+                amount: 100
+            },
+            {
+                month: "Март",
+                amount: 80
+            },
+            {
+                month: "Июнь",
+                amount: 90
+            },
+            {
+                month: "Июль",
+                amount: 100
+            }
+        ];
+
+        let table = document.createElement("table");
+
+        function createRow(column1, column2) {
+            let tr = document.createElement("tr");
+            tr.append(createCell(column1));
+            tr.append(createCell(column2));
+            return tr;
+        }
+
+        function createCell(textCell) {
+            let td = document.createElement("td")
+            td.textContent = textCell;
+            return td;
+        }
+
+        for (const item of source) {
+            table.append(createRow(item.amount, item.month));
+        }
+
+        document.body.append(table);
+    </script>
+</body>
+
+</html>
