@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 03</title>
+
+    <style>
+        div {
+            background-color: lightblue;
+            padding: 8px;
+            margin: 4px;
+            display: inline-block;
+        }
+
+        .busy-day {
+            color: darkred;
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /*
+        Задание:
+        Приложение создает для каждого дня недели div и поменяет какие дни недели являются занятыми.
+
+        Создайте div под каждый элемент массива days, значения элементов массива должны быть добавлены как текст в div. Если текст созданного div находится в массиве
+        busyDays добавьте для такого div дополнительно класс .busy-day
+        Разместите все созданные в конец тела документа.
+        */
+
+
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let busyDays = ["Monday", "Thursday", "Friday"];
+
+        for (const day of days) {
+            const div = document.createElement("div");
+            div.textContent = day;
+
+            if (busyDays.includes(day)) {
+                div.classList.add("busy-day");
+            }
+            document.body.appendChild(div);
+        }
+    </script>
+</body>
+
+</html>
