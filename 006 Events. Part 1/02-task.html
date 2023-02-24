@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расчет объема</title>
+</head>
+
+<body>
+
+    Радиус <input id="radiusInput" type="text"> <br />
+    Высота <input id="heightInput" type="text"> <br />
+
+    <button id="btnResult">total result</button>
+    <div id="result"></div>
+
+    
+    <script>
+        let btnResult = document.querySelector("#btnResult");
+        let radiusInput = document.querySelector("#radiusInput");
+        let heightInput = document.querySelector("#heightInput");
+
+        let result = document.querySelector("#result");
+
+        btnResult.addEventListener("click", function () {
+            let height = heightInput.value;
+            let radius = radiusInput.value;
+            let volume = Math.PI * Math.pow(radius, 2) * height;
+
+            result.textContent = volume;
+
+        });
+
+    </script>
+</body>
+
+</html>
