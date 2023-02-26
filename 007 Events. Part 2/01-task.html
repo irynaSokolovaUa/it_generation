@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+    <style>
+        #colorOutput {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="colorOutput">fff</div>
+
+    <script>
+
+        let div = document.querySelector("#colorOutput");
+
+        document.addEventListener("keydown", function (e) {
+            switch (e.key) {
+                case "g":
+                    div.style.backgroundColor = "green";
+                    break;
+
+                case "r":
+                    div.style.backgroundColor = "red";
+                    break;
+                case "b":
+                    div.style.backgroundColor = "blue";
+                    break;
+            }
+        });
+
+     
+
+
+
+        /*
+        Задание:
+        Сделайте так, чтобы при нажатии на клавишу G фон div#colorOutput становился зеленым.
+        при нажатии на клавишу R фон div#colorOutput становился красным, 
+        а при нажатии на клавишу B фон div#colorOutput становился синим.
+        */
+    </script>
+</body>
+
+</html>
