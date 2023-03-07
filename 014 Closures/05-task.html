@@ -20,33 +20,76 @@
         когда процесс разработки и целевая среда выполнения не дает возможность использовать 
         ключевое солово class
         */
+      
+        let numberModule = (() => {
+            let values = [];
+            let threshold = 0;
 
-        class Numbers {
-            #values;
-            #threshold;
-
-            constructor(threshold, values) {
-                this.#values = values;
-                this.#threshold = threshold;
+            function getGreaterThanThreshold() {
+                return values.filter(v => v > threshold);
             }
 
-            // Возвращает все значения из массива values, которые больше, чем значение переменной threshold
-            getGreaterThanThreshold() {
-                return this.#values.filter(v => v > this.#threshold);
+            function getLessThanThreshold() {
+                return values.filter(v => v < threshold);
             }
 
-            // возвращает все значения из массива values, которые меньше, чем значение переменной threshold 
-            getLessThanThreshold() {
-                return this.#values.filter(v => v < this.#threshold);
-            }
-        }
+            return {
+                setThreshold: function(newThreshold) {
+                threshold = newThreshold;
+                },
+                setValues: function(newValues) {
+                values = newValues;
+                },
+                getGreaterThanThreshold: getGreaterThanThreshold,
+                getLessThanThreshold: getLessThanThreshold
+            };                          
+        })();
 
-        let numbers = new Numbers(50, [10, 20, 23, 11, 5, 6, 90, 33, 45, 67]);
-        let gt = numbers.getGreaterThanThreshold();
-        let lt = numbers.getLessThanThreshold();
+        numberModule.setThreshold(50);
+        numberModule.setValues([10, 20, 23, 11, 5, 6, 90, 33, 45, 67]);
+
+        let gt = numberModule.getGreaterThanThreshold();
+        let lt = numberModule.getLessThanThreshold();
+
 
         console.log(gt);
         console.log(lt);
+
+
+        // class Numbers {
+
+            
+        //     #values;
+        //     #threshold;
+
+        //     constructor(threshold, values) {
+        //         this.#values = values;
+        //         this.#threshold = threshold;
+        //     }
+
+        //     // Возвращает все значения из массива values, которые больше, чем значение переменной threshold
+        //     getGreaterThanThreshold() {
+        //         return this.#values.filter(v => v > this.#threshold);
+        //     }
+
+        //     // возвращает все значения из массива values, которые меньше, чем значение переменной threshold 
+        //     getLessThanThreshold() {
+        //         return this.#values.filter(v => v < this.#threshold);
+        //     }
+        // }
+
+        // let numbers = new Numbers(50, [10, 20, 23, 11, 5, 6, 90, 33, 45, 67]);
+        // let gt = numbers.getGreaterThanThreshold();
+        // let lt = numbers.getLessThanThreshold();
+
+
+        // numberModule.setThreshold = 50;
+        // numberModule.setValue = [10, 20, 23, 11, 5, 6, 90, 33, 45, 67]
+        // let gt = numberModule.getGreaterThanThreshold();
+        // let lt = numberModule.getLessThanThreshold();
+
+        // console.log(gt);
+        // console.log(lt);
     </script>
 </body>
 
