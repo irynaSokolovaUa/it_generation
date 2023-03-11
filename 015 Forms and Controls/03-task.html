@@ -56,8 +56,17 @@
 
         <div class="form-group">
             <label for="price">Валюта</label>
-            <input type="radio" id="currency" name="currency" value="USD" checked> USD
-            <input type="radio" id="currency" name="currency" value="EUR"> EUR
+            <select name="currency">
+                <option value="USD">U.S. Dollar</option>
+                <option value="UAH">Ukrainian Hryvnia</option>
+                <option value="EUR" selected>Euro</option> 
+                <option value="PLN">Polish Zloty</option>
+                <option value="CHF">Swiss Franc</option>
+            </select>
+            <!-- <input type="radio" id="currency" name="currency" value="USD" checked> USD
+            <input type="radio" id="currency" name="currency" value="EUR"> EUR -->
+
+
         </div>
         <br>
         <input id="saveButton" type="button" value="Сохранить">
