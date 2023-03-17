@@ -84,6 +84,8 @@
             <input type="number" name="age" id="age">
         </div>
         <input type="button" value="Save" id="saveButton">
+        <input type="button" value="Delete" id="deleteButton">
+        <input type="button" value="Reset" id="resetButton">
     </form>
     <script>
         /*
@@ -258,10 +260,18 @@
                 this.currentUser.email = this.form.email.value;
                 this.currentUser.age = this.form.age.value;
             }
+
+
         }
 
         let userList = document.querySelector("#userList");
         let saveButton = document.querySelector("#saveButton");
+        let deleteButton = document.querySelector("#deleteButton");
+        let resetButton = document.querySelector("#resetButton");
+
+
+
+
 
         let listService = new ListService(users, userList, x => x.name.first + " " + x.name.last);
         let formService = new UserFormService(document.forms[0]);
@@ -277,6 +287,11 @@
         saveButton.addEventListener("click", function () {
             formService.saveForm();
         });
+
+        resetButton.addEventListener("click", function () {
+            document.getElementById("output").reset();
+        });
+
     </script>
 </body>
 
