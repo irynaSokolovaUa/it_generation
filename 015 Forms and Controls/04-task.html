@@ -258,6 +258,16 @@
                 this.currentUser.email = this.form.email.value;
                 this.currentUser.age = this.form.age.value;
             }
+
+            cleanForm(){
+                this.form.firstName.value = "";
+                this.form.lastName.value = "";
+                this.form.companyName.value = "";
+                this.form.balance.value = "";
+                this.form.email.value = "";
+                this.form.age.value = "";
+
+            }
         }
 
         let userList = document.querySelector("#userList");
@@ -275,10 +285,21 @@
         });
 
         saveButton.addEventListener("click", function () {
-            formService.saveForm();
+            let result = confirm("Вы действительно хотите сохранить изменения?");
+            if (result){
+                formService.saveForm();
+            } else {
+                // formService.reset()
+                formService.cleanForm()
+            }
         });
-
+        /*
+        Задание:
+        Сделайте так, чтобы при нажатии на кнопку "Сохранить" появлялось сообщение "Вы действительно хотите сохранить изменения?"
+        Если пользователь нажимает на Да - изменения сохраняются, Отмена - изменения не применяются
+        */
     </script>
+    
 </body>
 
 </html>
