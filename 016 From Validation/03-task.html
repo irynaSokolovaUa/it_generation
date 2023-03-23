@@ -70,6 +70,17 @@
             alert("Форма отправлена");
         });
 
+        form.emailInput.addEventListener("input", function(){
+            if (form.emailInput.value == "admin@example.com" ||
+                form.emailInput.value == "superuser@example.com" ||
+                form.emailInput.value == "user@example.com") {
+                    form.emailInput.setCustomValidity("Цей Email не може використовуватись при реєстрації");
+
+                } else {
+                    form.emailInput.setCustomValidity("");
+                }
+        })
+
         form.passwordConfirmInput.addEventListener("input", function () {
             if (form.passwordConfirmInput.value != form.passwordInput.value) {
                 form.passwordConfirmInput.setCustomValidity("Пароль и подтверждение пароля не совпадают.");
