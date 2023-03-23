@@ -54,7 +54,8 @@
         </div>
         <div class="form-group">
             <label>Номер кредитной карты</label>
-            <input type="text" name="creditCard">
+            <input type="text" name="creditCard" data-val="true" data-required="Введите номер кредитной карты"
+             data-error-label="creditCardErrorLabel" data-credit-card>
             <span class="error" id="creditCardErrorLabel">Ошибка</span>
         </div>
         <div class="form-group">
@@ -66,15 +67,14 @@
 
         /*
         Задание:
-        Применяя подход, реализованный в данном сценарии, добавьте валидацию для поля ввода
-        "Номер кредитной карты". Поле ввода должно содержать значение в формате 
-        ХХХХ ХХХХ ХХХХ ХХХХ где X - это число от 0 до 9
-
+        Применяя подход, реализованный в данном сценарии. Добавьте валидацию для поля ввода
+        "Номер кредитной карты". Поле ввода должно содержать значение в формат 
+        ХХХХ ХХХХ ХХХХ ХХХХ где X это число от 0 до 9
+        
         Пример создания регулярного выражения в коде:
         let regex = new RegExp("\\d{4}");
-        для того чтобы в строке определить метасимвол \d, символ слеш нужно экранировать, добавив дополнительный слеш
+        для того чтобы в строке определить метасимвол \d символ слеш нужно экранировать, добавив дополнительный слеш
         метасимвол \d в JS строке должен использоваться как \\d
-
         */
         const form = document.forms[0];
 
@@ -107,7 +107,7 @@
             for (const key in validators) {
                 if (Object.hasOwnProperty.call(validators, key) && typeof validators[key] == "object") {
 
-                    if (element.dataset[key]) {
+                    if (element.dataset[key] !== undefined) {
                         const validator = validators[key];
                         if (!validator.isValid(element))
                             return false;
@@ -147,7 +147,7 @@
 
         validators.pattern = {
             isValid: function (element) {
-                let message = "Введенное значение не соответствует шаблону";
+                let message = "Введенное значенеи не соответствует шаблону";
                 let regex = new RegExp(element.dataset.pattern);
                 return validators.validate(element, message, () => regex.test(element.value));
             }
@@ -158,6 +158,14 @@
                 let message = "Значения не совпадают";
                 let confirmInput = document.querySelector("#" + element.dataset.confirm);
                 return validators.validate(element, message, () => element.value == confirmInput.value);
+            }
+        };
+
+        validators.creditCard = {
+            isValid: function (element) {
+                let message = "Значения не соответствует шаблону ХХХХ ХХХХ ХХХХ ХХХХ";
+                let regex = new RegExp("\\d{4} \\d{4} \\d{4} \\d{4}");
+                return validators.validate(element, message, () => regex.test(element.value));
             }
         };
     </script>
