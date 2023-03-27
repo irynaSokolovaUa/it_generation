@@ -36,6 +36,10 @@
             margin-left: 4px;
         }
 
+        .task button {
+            margin-left: auto;
+        }
+
         .completed {
             background-color: green;
             color: white;
@@ -80,7 +84,8 @@
     <script>
 
         /*
-        Задача, добавьте возможность удалять отдельные задачи в списке. Изменения должны сохраняться в localStorage
+        Задача, добавьте возможность удалять отдельные задачи в списке. Изменения должны сохранятся в localStorage
+        Изменения на стркоах - 114, 186, 207
         */
 
         class Task {
@@ -103,6 +108,12 @@
 
             add(task) {
                 this.tasks.push(task);
+                this.save();
+            },
+
+            delete(task) {
+                let index = this.tasks.indexOf(task);
+                this.tasks.splice(index, 1);
                 this.save();
             },
 
@@ -172,8 +183,13 @@
                 let p = document.createElement("p");
                 p.innerText = this.task.text;
 
+                let button = document.createElement("button");
+                button.innerHTML = "Delete";
+                button.addEventListener("click", this.delete.bind(this));
+
                 this.div.append(input);
                 this.div.append(p);
+                this.div.append(button);
 
                 if (this.task.isDone) {
                     this.div.classList.add("completed");
@@ -186,6 +202,11 @@
                 this.task.isDone = !this.task.isDone;
                 dataService.save();
                 this.div.classList.toggle("completed");
+            }
+
+            delete() {
+                dataService.delete(this.task);
+                this.div.remove();
             }
         }
 
