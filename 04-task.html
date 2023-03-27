@@ -239,6 +239,9 @@
                     this.listElement.children[index].remove();
                     this.data.splice(index, 1);
                 }
+
+                localStorage.setItem("users", JSON.stringify(users));
+
             }
         }
 
@@ -280,6 +283,12 @@
         let userList = document.querySelector("#userList");
         let saveButton = document.querySelector("#saveButton");
         let deleteButton = document.querySelector("#deleteButton");
+
+        let formStorage = localStorage.getItem("users")
+
+        if (formStorage) {
+            users = JSON.parse(formStorage);
+        }
 
         let listService = new ListService(users, userList, x => x.name.first + " " + x.name.last);
         let formService = new UserFormService(document.forms[0]);
