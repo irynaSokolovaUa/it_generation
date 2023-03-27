@@ -5,69 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>События focus и blur</title>
+    <title>test</title>
 
     <style>
-        .form-group {
-            margin: 4px;
-        }
-
-        .form-group label {
-            width: 75px;
-            display: inline-block;
-        }
-
-        .error {
-            color: red;
-            display: none;
-        }
+   
     </style>
 </head>
 
 <body>
-    <form action="https://itvdn.com/ru/catalog" method="GET">
-        <div class="form-group">
-            <label>Запрос</label>
-            <input type="text" name="search">
-            <p class="error" id="searchError">Поле обязательное для заполнения</p>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Поиск">
-        </div>
-    </form>
+ 
 
     <script>
 
-        let form = document.forms[0];
-        let search = form.search;
-        let searchError = document.querySelector("#searchError");
-
-        function showError(){
-            searchError.style.display = "block";
-        };
-
-        function hideError(){
-            searchError.style.display = "none"
-        };
-
-        search.addEventListener("focus", function(){
-            hideError();
-        })
-
-        search.addEventListener("blur", function(event){
-            if (event.target.value.length == 0) {
-                showError();
-            }
-        });
-
-        form.addEventListener("submit" ,function(event){
-            if(form.search.value.length == 0){
-                event.preventDefault();
-            }
-        })
+     localStorage.setItem("test", 1);
+     localStorage.setItem("test2", 2);
+     localStorage.setItem("test3", 3);
 
 
-        </script>
+    //  alert(localStorage.getItem("test"))
+
+    //  localStorage.test = 2;
+    //  alert(localStorage.getItem("test"))
+
+    //  delete localStorage.test;
+    //  alert(localStorage.getItem("test"))
+
+    for (let index = 0; index < localStorage.length; index++) {
+        let key = localStorage.key(index);
+        alert(`${key}: ${localStorage.getItem(key)}`)   ;     
+    }
+
+
+
+
+     </script>
 </body>
 
 </html>
