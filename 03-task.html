@@ -16,6 +16,12 @@
             width: 75px;
             display: inline-block;
         }
+
+        
+        th,
+        td {
+            border: 1px solid black;
+        }
     </style>
 </head>
 
@@ -48,6 +54,13 @@
         </div>
     </form>
 
+    <button id="readlocalStorage">Показать все</button>
+    <button id="cleanlocalStorage">Очистить localStorage</button>
+
+    <table id="localStorageContent"></table>
+
+
+
     <script>
         /*
         Задание:
@@ -56,6 +69,11 @@
         
         Добавьте на страницу кнопку "Очистить localStorage". При нажатии на кнопку localStorage должен быть очищен.
         */
+
+        const readlocalStorageButton = document.querySelector("#readlocalStorage");
+        const cleanlocalStorageButton = document.querySelector("#cleanlocalStorage");
+        const table = document.querySelector('#localStorageContent');
+
         document.forms.writeForm.addEventListener("submit", function (e) {
             e.preventDefault();
             const form = document.forms.writeForm;
@@ -76,6 +94,33 @@
             let value = localStorage.getItem(key); 
             alert(value);
         });
+
+        function printLocalStorageContent() {
+            table.innerHTML = ""
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                const row = document.createElement("tr");
+                const keyCell = document.createElement("td");
+                const valueCell = document.createElement("td");
+                keyCell.textContent = key;
+                valueCell.textContent = value;
+                row.appendChild(keyCell);
+                row.appendChild(valueCell);
+                localStorageContent.appendChild(row);
+            }
+        }
+
+        readlocalStorageButton.addEventListener("click", function () {
+            printLocalStorageContent();
+        });
+
+        cleanlocalStorageButton.addEventListener("click", function () {
+            localStorage.clear();
+            printLocalStorageContent();
+        });
+
+        
     </script>
 </body>
 
