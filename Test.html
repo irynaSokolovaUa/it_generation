@@ -16,29 +16,13 @@
  
 
     <script>
+        localStorage.user = JSON.stringify({name: "John"});
 
-     localStorage.setItem("test", 1);
-     localStorage.setItem("test2", 2);
-     localStorage.setItem("test3", 3);
-
-
-    //  alert(localStorage.getItem("test"))
-
-    //  localStorage.test = 2;
-    //  alert(localStorage.getItem("test"))
-
-    //  delete localStorage.test;
-    //  alert(localStorage.getItem("test"))
-
-    for (let index = 0; index < localStorage.length; index++) {
-        let key = localStorage.key(index);
-        alert(`${key}: ${localStorage.getItem(key)}`)   ;     
-    }
+        let user = JSON.parse(localStorage.user)
+        alert(user.name)
 
 
-
-
-     </script>
+    </script>
 </body>
 
 </html>
