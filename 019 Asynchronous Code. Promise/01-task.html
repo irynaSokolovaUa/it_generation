@@ -21,7 +21,7 @@
         */
        
         function downloadImage(url, success, error) {
-            let image = new Image(500);
+            let image = new Image(200);
             image.src = url;
 
             image.onload = function () {
@@ -36,6 +36,21 @@
                     error(new Error("Не удалось загрузить изображение " + this.src));
             }
         }
+
+        function handleSuccess(image){
+            document.querySelector("#output").append(image);
+        }
+
+        function handleError(error) {
+            console.log(error.message)
+        }
+
+        document.querySelector("button").addEventListener("click", () => {
+            let url = "https://images-assets.nasa.gov/image/PIA16239/PIA16239~orig.jpg"
+
+            downloadImage(url, handleSuccess, handleError)
+        })
+
     </script>
 </body>
 
