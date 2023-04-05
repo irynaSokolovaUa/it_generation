@@ -9,7 +9,56 @@
 </head>
 
 <body>
+
+    <form name="data" method="post">
+        <legend>title</legend>
+        <input type="text" name="title" id="title"><br>
+        <legend>Body</legend>
+        <input type="text" name="body" id="body">
+
+    </form> <br>
+    <button>Создать задачу</button>
+
+
     <script>
+        let form = document.forms.data;
+        let url = "https://jsonplaceholder.typicode.com/posts/2";
+
+
+        let titleInput = document.forms.data.title;
+        let bodyInput = document.forms.data.body;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(json => {
+                titleInput.value = json.title;
+                bodyInput.value = json.body;
+            })
+
+        let button = document.querySelector("button");
+
+        button.addEventListener("click", function () {
+            let user = {
+                id: 1,
+                title: titleInput,
+                body: bodyInput,
+                userId: 1,
+            };
+
+            fetch(url, {
+                method: "PUT",
+                body: JSON.stringify(user)
+            }).then((response) => {
+                if (response.ok) {
+                    console.log(response.json());
+                    alert("succses");
+                } else {
+                    console.error("Error status: " + response.status);
+                }
+            });
+        })
+
+
         /*
         Задание:
         Напишите сценарий, который будет обновлять сущность post со свойствами
