@@ -19,18 +19,28 @@
         */
         let button1 = document.querySelector("#button1");
         let output = document.querySelector("#output");
-        let url = "https://jsonplaceholder.typicode.com/todos/100000";
+        let url = "https://jsonplaceholder.typicode.com/todos/1";
 
         button1.addEventListener("click", function () {
             fetch(url)
-                .then(response => response.json())  
+            .then(response => {
+                console.log("1")
+                    if(response.ok) {
+                        console.log("2")
+                        return response.json();
+                    } else {
+                        throw new Error("Статус код: " + response.status);
+                    }
+                })
                 .then(json => {
+                    console.log("3")
                     output.innerHTML = "";
                     output.innerHTML += "<br>id: " + json.id;
                     output.innerHTML += "<br>user id: " + json.userId;
                     output.innerHTML += "<br>title: " + json.title;
                     output.innerHTML += "<br>completed: " + json.completed;
-                });
+                })
+                .catch(error => console.error(error.message));
         });
     </script>
 </body>
