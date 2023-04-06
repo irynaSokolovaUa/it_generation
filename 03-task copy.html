@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 03</title>
+</head>
+
+<body>
+
+    <div id="photos-container"></div>
+    <script>
+
+        function displayPhotos(photos) {
+            // Получаем элемент <div>, в котором будут выводиться изображения
+            var container = document.getElementById('photos-container');
+
+            // Проходимся по массиву изображений и создаем для каждого элемент <img>
+            for (var i = 0; i < photos.length; i++) {
+                var photo = photos[i];
+
+                // Создаем элемент <img> и указываем его атрибуты
+                var img = document.createElement('img');
+                img.src = photo.thumbnailUrl;
+                img.alt = photo.title;
+
+                // Добавляем элемент <img> в контейнер
+                container.appendChild(img);
+            }
+        }
+
+
+        function loadPhotos() {
+            // Создаем новый экземпляр объекта XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // Указываем метод GET и URL запроса
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/photos', true);
+
+            // Устанавливаем обработчик события, который будет вызываться при изменении состояния запроса
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    // Проверяем, что ответ сервера имеет статус 200 (OK)
+                    if (xhr.status === 200) {
+                        // Получаем ответ сервера в виде строки и преобразуем его в объект JavaScript
+                        var response = JSON.parse(xhr.responseText);
+
+                        // Вызываем функцию, которая будет выводить изображения на странице
+                        displayPhotos(response);
+                    } else {
+                        // Если сервер вернул другой статус, выводим сообщение об ошибке
+                        console.log('Ошибка: ' + xhr.status);
+                    }
+                }
+            };
+
+            // Отправляем запрос на сервер
+            xhr.send();
+        }
+
+        window.onload = function() {
+  loadPhotos();
+};
+
+
+
+        /*
+        "albumId": 1,
+    "id": 1,
+    "title": "accusamus beatae ad facilis cum similique qui sunt",
+    "url": "https://via.placeholder.com/600/92c952",
+    "thumbnailUrl": "https://via.placeholder.com/150/92c952"
+        Задание:
+        Напишите сценарий, который при загрузке страницы выполнит GET запрос на https://jsonplaceholder.typicode.com/photos
+        и выведет на странице все изображения в виде <img>, которые будут получены в ответе.
+        */
+    </script>
+</body>
+
+</html>
