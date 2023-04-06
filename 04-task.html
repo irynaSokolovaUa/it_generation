@@ -6,15 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task 04</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+    </style>
 </head>
 
 <body>
+
+
     <script>
         /*
         Задание:
         Напишите сценарий, который выполняет GET запрос по адресу https://jsonplaceholder.typicode.com/todos
         И выводит содержимое ответа в виде таблицы.
+          "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
         */
+
+        fetch('https://jsonplaceholder.typicode.com/todos')
+            .then(response => response.json())
+            .then(json => {
+                const table = document.createElement('table');
+
+               
+
+                json.forEach(todo => {
+                    const row = table.insertRow();
+                    const userIdCell = row.insertCell();
+                    userIdCell.innerText = todo.userId;
+                    const idCell = row.insertCell();
+                    idCell.innerText = todo.id;
+                    const titleCell = row.insertCell();
+                    titleCell.innerText = todo.title;
+                    const completedCell = row.insertCell();
+                    completedCell.innerText = todo.completed;
+                });
+
+                document.body.appendChild(table);
+            })
+            .catch(error => console.error(error));
+
+
     </script>
 </body>
 
