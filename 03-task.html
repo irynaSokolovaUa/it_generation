@@ -12,7 +12,6 @@
   
     <div id="photos-container"></div>
     <script>
-        let div = document.querySelector("div");
         let url = "https://jsonplaceholder.typicode.com/photos/";
 
         fetch(url)
@@ -41,7 +40,7 @@
         }
 
         window.onload = function () {
-            loadPhotos();
+            loadPhotos(url);
         }
 
         /*
