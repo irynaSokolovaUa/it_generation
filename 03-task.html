@@ -9,8 +9,47 @@
 </head>
 
 <body>
+  
+    <div id="photos-container"></div>
     <script>
+        let div = document.querySelector("div");
+        let url = "https://jsonplaceholder.typicode.com/photos/";
+
+        fetch(url)
+            .then(response => response.json())
+            .then(json => loadPhotos(json))
+            .catch(error => console.log('Ошибка: ' + error.message));
+            // .then(json => {
+            //     div.innerHTML = `<img width="100" height="100" src="${json.url}">`;
+               
+            // })
+
+
+        function loadPhotos(photos) {
+
+            var container = document.getElementById('photos-container');
+
+            photos.forEach(photo => {
+                let img = document.createElement('img');
+                img.src = photo.thumbnailUrl;
+                img.alt = photo.title;
+
+                container.appendChild(img)
+            });
+
+           
+        }
+
+        window.onload = function () {
+            loadPhotos();
+        }
+
         /*
+        "albumId": 1,
+    "id": 1,
+    "title": "accusamus beatae ad facilis cum similique qui sunt",
+    "url": "https://via.placeholder.com/600/92c952",
+    "thumbnailUrl": "https://via.placeholder.com/150/92c952"
         Задание:
         Напишите сценарий, который при загрузке страницы выполнит GET запрос на https://jsonplaceholder.typicode.com/photos
         и выведет на странице все изображения в виде <img>, которые будут получены в ответе.
