@@ -96,14 +96,32 @@
 
             get allTasks() {
                 return fetch(this.url)
-                    .then(response => response.json())
-                    .then(json => this.mapArray(json));
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json()
+                        } else {
+                            throw new Error(`Ошибка сети. Код статуса: ${response.status}`);
+                        }
+                    })
+                    .then(json => this.mapArray(json))
+                    .catch(error => {
+                        throw new Error(`Ошибка получения задач. ${error.message}`);
+                    });
             },
 
             get notCompletedTasks() {
                 return fetch(this.url + "?completed=false")
-                    .then(response => response.json())
-                    .then(json => this.mapArray(json));
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json()
+                        } else {
+                            throw new Error(`Ошибка сети. Код статуса: ${response.status}`);
+                        }
+                    })
+                    .then(json => this.mapArray(json))
+                    .catch(error => {
+                        throw new Error(`Ошибка получения не завершенных задач. ${error.message}`);
+                    });
             },
 
             add(task) {
@@ -111,7 +129,16 @@
                     method: "POST",
                     body: JSON.stringify({ title: task.text, completed: task.isDone })
                 })
-                    .then(response => response.json());
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json()
+                        } else {
+                            throw new Error(`Ошибка сети. Код статуса: ${response.status}`);
+                        }
+                    })
+                    .catch(error => {
+                        throw new Error(`Ошибка добавления задачи. ${error.message}`);
+                    });
             },
 
             update(task) {
@@ -119,7 +146,16 @@
                     method: "PUT",
                     body: JSON.stringify({ title: task.text, completed: task.isDone })
                 })
-                    .then(response => response.json());
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json()
+                        } else {
+                            throw new Error(`Ошибка сети. Код статуса: ${response.status}`);
+                        }
+                    })
+                    .catch(error => {
+                        throw new Error(`Ошибка обновления задачи. ${error.message}`);
+                    });
             },
 
             mapArray(array) {
@@ -131,7 +167,7 @@
                     }
                 });
             }
-        }
+        };
 
         class TasksListView {
             element;
