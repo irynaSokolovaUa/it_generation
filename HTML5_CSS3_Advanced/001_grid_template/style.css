@@ -9,7 +9,7 @@ body {
     font-size: 18px;
     line-height: 130%;
     letter-spacing: 0.04em;
-    color: #232323;
+    color: white;
 }
 
 a {
@@ -23,15 +23,68 @@ a {
     padding: 0 15px;
 }
 
-.menu,
-.greating,
-.about,
-.cards {
+.menu
+ {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+}
+
+header {
+    background-image: url('images/layer_1.png');
+    background-size: cover;
+    height: 737px;
+    padding: 40px 100px 0px 100px;
+}
+
+a {
+    padding: 10px 15px;
+}
+a:hover {
+    
+    text-decoration: none;
+    border-radius: 20px;
+    border: 1px solid white;
+    /* color: red */
+  }
+
+  .logo:hover {
+    border: none;
+    /* background-color: white; */
+} 
+
+h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 5px;
+    /* text-align: center; */
+    padding-top: 220px;
+
+}
+
+.textManu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.menu {
-    background-image: url(".images/layer_1.png");
+main {
+    color:black;
+    
 }
+
+main h1{
+    padding-top: 40px;
+}
+
+.navPortfolio a{
+    color: black;
+}
+
+.navPortfolio {}
+
+.featured {
+    display: grid;
+    grid-template-columns: 701px 334px 334px;
+}
+/* font-family: 'Montserrat', sans-serif; */
