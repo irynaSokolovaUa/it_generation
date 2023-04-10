@@ -13,13 +13,18 @@
 </head>
 
 <body>
- 
+ <ul></ul>
 
     <script>
-        localStorage.user = JSON.stringify({name: "John"});
+        let ul = document.querySelector("ul")
 
-        let user = JSON.parse(localStorage.user)
-        alert(user.name)
+        fetch("https://jsonplaceholder.typicode.com/todos")
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(todo => {
+                    ul.innerHTML += `<li>(${todo.completed}): ${todo.title}`
+                });
+            })
 
 
     </script>
