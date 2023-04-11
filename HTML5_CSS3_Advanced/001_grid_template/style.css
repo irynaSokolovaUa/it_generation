@@ -17,12 +17,6 @@ a {
     color: white;
 }
 
-.conteiner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
 .menu
  {
     display: flex;
@@ -50,13 +44,11 @@ a:hover {
 
   .logo:hover {
     border: none;
-    /* background-color: white; */
 } 
 
 h1 {
     font-family: 'Source Sans Pro', sans-serif;
     letter-spacing: 5px;
-    /* text-align: center; */
     padding-top: 220px;
 
 }
@@ -66,6 +58,12 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+.conteiner {
+        padding: 30px 0 50px 0;
+
 }
 
 main {
@@ -74,17 +72,43 @@ main {
 }
 
 main h1{
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .navPortfolio a{
     color: black;
 }
 
-.navPortfolio {}
+.navPortfolio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.navPortfolio a {
+    padding: 40px 10px;
+}
 
 .featured {
     display: grid;
     grid-template-columns: 701px 334px 334px;
+    justify-content: center;
 }
-/* font-family: 'Montserrat', sans-serif; */
+
+.portfolio {
+    display: grid;
+    grid-template-rows: minmax(301px auto);
+    justify-content: center;
+    grid-gap: 10px;
+}
+
+.portfolio img {
+    padding: 0 5px;
+    
+}
+
+.all {
+    display: flex;
+    justify-content: center;
+}
