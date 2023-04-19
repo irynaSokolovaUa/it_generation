@@ -1,0 +1,20 @@
+header {
+    background-image: url(https://thumbs.dreamstime.com/b/back-to-school-background-copy-space-121723384.jpg);
+    background-size: cover;
+    height: 600px;
+
+}
+
+.menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 15px;
+    font-size: 35px;
+
+}
+a {
+    color: black;
+
+}
+    
+

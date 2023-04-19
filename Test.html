@@ -8,15 +8,55 @@
     <title>test</title>
 
     <style>
+        .first {
+            width: 150px;
+            height: 150px;
+            background-color: brown;
+        }
+
+         .second {
+            width: 250px;
+            height: 250px;
+            background-color: rgb(29, 56, 255);
+            margin-top: 100px;
+        }
    
     </style>
 </head>
 
 <body>
- <ul></ul>
+
+    <div class="first" draggable="true"></div>
+    <div class="second"></div>
 
     <script>
-        let ul = document.querySelector("ul")
+
+        let divOne = document.querySelector(".first")
+        let divSecond = document.querySelector(".second")
+
+
+        divOne.addEventListener("dragstart", function(e){
+            console.log("dragstart");
+            e.dataTransfer.setData("text/plain", "divOne");
+
+
+        })
+
+        divSecond.addEventListener("dragover", function(e){
+            e.preventDefault();
+
+        })
+        
+
+        divSecond.addEventListener("drop", function(e){
+            console.log("drop");
+
+            let data = e.dataTransfer.getData("text/plain");
+            if (data === "divOne") {
+                divSecond.append(divOne);
+            }
+            
+        })
 
     </script>
 </body>
