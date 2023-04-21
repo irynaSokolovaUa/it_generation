@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <video src="video/vsvideo.mp4" id="video" width="600" height="400"></video>
+    <br>
+
+    <button onclick="document.getElementById('video').pause()">Зупинити</button>
+
+    <button onclick="document.getElementById('myVideo').play()">Продовжити</button>
+
+    <button onclick="document.getElementById('myVideo').currentTime += 10">Вперед на 10с</button>
+
+    <button onclick="document.getElementById('myVideo').currentTime -= 10">Назад на 10с</button>
+
+    <button onclick="document.getElementById('myVideo').volume += 0.1">Збільшити гучність</button>
+<button onclick="document.getElementById('myVideo').volume -= 0.1">Зменшити гучність</button>
+
+
+
+    
+</body>
+</html>
