@@ -1,0 +1,32 @@
+.gallary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.preview {
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid lightgray; */
+    /* max-width: 700px; */
+    /* margin-left: 500px; */
+
+}
+/* .image-button > img {
+    height: 150px;
+    padding: 10px;
+} */
+
+.image-button {
+    /* width: 100px; задаем ширину кнопки */
+    height: 150px; 
+    border: none; /* убираем границу у кнопки */
+    padding: 10px; /* убираем отступы внутри кнопки */
+  }
+  
+.image-button img {
+    width: 100%; /* задаем ширину картинки равной ширине кнопки */
+    height: 100%; /* задаем высоту картинки равной высоте кнопки */
+    object-fit: cover; /* устанавливаем, чтобы картинка занимала всю площадь кнопки */
+  }
