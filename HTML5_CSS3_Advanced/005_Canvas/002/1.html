@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+
+<script>
+  const canvas = document.getElementById('myCanvas');
+  const ctx = canvas.getContext('2d');
+  
+  const gridSize = 10;
+  const gridSpacing = 40;
+  
+  for (let x = 0; x <= gridSize; x++) {
+    ctx.beginPath();
+    ctx.moveTo(x * gridSpacing, 0);
+    ctx.lineTo(x * gridSpacing, canvas.height);
+    ctx.stroke();
+  }
+  
+  for (let y = 0; y <= gridSize; y++) {
+    ctx.beginPath();
+    ctx.moveTo(0, y * gridSpacing);
+    ctx.lineTo(canvas.width, y * gridSpacing);
+    ctx.stroke();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head>
+    </head>
+     <body onload="draw()">
+        <canvas id="myCanvus" width="496px" height="249px" style="border:1px dashed black;">
+           
+        </canvas>
+     </body>
+</html>
+<script type="text/javascript">
+
+    function draw(){
+        var canvas=document.getElementById("myCanvus");
+		var canvasWidth=496;
+		var canvasHeight=249;
+
+        var context=canvas.getContext("2d");
+		
+		context.fillStyle = "white";
+		context.fillRect(0, 0, canvasWidth, canvasHeight);
+		
+		context.fillStyle = "rgb(218,37,29)";
+		context.fillRect(0, 0, 124, 249);
+		context.fillRect(372, 0, 124, 249);
+
+		var img=new Image();
+		img.src='fy.gif';
+		context.save();
+		img.onload=function(){
+				var pattern=context.createPattern(img,'no-repeat');
+				context.fillStyle=pattern;				
+				context.translate(124,0);
+				context.fillRect(0,0,248,249);
+		}
+
+		context.restore();
+    }
+
+	function getRad(degree){
+		return degree/180*Math.PI;
+	}
+
+</script>
