@@ -1,0 +1,16 @@
+﻿footer {
+    width:100%;
+    /* Є можливість отримувати змінні з інших файлів */
+    height:$size/2;
+    .container {
+        background-color: $colorR;
+        opacity:0.5;
+        h3, p {
+            margin-left:$size/3;
+            display:inline-block;
+            color: blue;
+            font-size:$size/7;
+            font-weight:bold;
+        }
+    }
+}

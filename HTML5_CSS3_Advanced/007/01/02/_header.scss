@@ -1,0 +1,25 @@
+﻿/* Додавання власної змінної */
+$headerSize: 10px;
+
+body {
+    margin:0;
+    padding:0;
+}
+
+header {
+    width:100%;
+    height:$headerSize*4;
+    border:$headerSize/5 solid rgb(23, 0, 128);
+    background-color:aqua;
+    .nav {
+        margin:$headerSize*2 auto;
+        li {display:inline;
+            a{
+                text-decoration:none;
+                &:hover{
+                    font-size:$headerSize*2;
+                }
+            }
+        }
+    }
+}

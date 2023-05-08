@@ -1,0 +1,47 @@
+﻿/* Змінні можуть використовуватись і в інших файлах, підключених до імпорту */
+$size: 100px;
+$colorG: green;
+$colorR: red;
+
+/* Визначаємо, які потрібно підключати файли scss на сторінку */
+@import 'header';
+@import 'footer';
+
+.item {
+    width: $size*6;
+    height: $size*6;
+    background-color: lighten($colorR, 40%);
+    margin: $size/2 auto;
+    border: $size/50 solid $colorG;
+
+    h2 {
+        text-align: right;
+        color: lighten($colorG, 50%);
+    }
+
+    .container {
+        width: $size*4;
+        height: $size*3;
+        border: $size/33 solid $colorG;
+        margin: $size/5 auto;
+
+        h1 {
+            text-align: center;
+            color: $colorR;
+            opacity: 0.5;
+        }
+
+        .lead {
+            font-size: $size/10;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: lighten($colorR, 30%);
+            border-radius: $size/4;
+            border: $size/25 solid blue;
+        }
+    }
+}

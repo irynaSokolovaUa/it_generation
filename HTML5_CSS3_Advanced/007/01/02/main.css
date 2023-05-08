@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/* Змінні можуть використовуватись і в інших файлах, підключених до імпорту */
+/* Визначаємо, які потрібно підключати файли scss на сторінку */
+/* Додавання власної змінної */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  height: 40px;
+  border: 2px solid rgb(23, 0, 128);
+  background-color: aqua;
+}
+header .nav {
+  margin: 20px auto;
+}
+header .nav li {
+  display: inline;
+}
+header .nav li a {
+  text-decoration: none;
+}
+header .nav li a:hover {
+  font-size: 20px;
+}
+
+footer {
+  width: 100%;
+  /* Є можливість отримувати змінні з інших файлів */
+  height: 50px;
+}
+footer .container {
+  background-color: red;
+  opacity: 0.5;
+}
+footer .container h3, footer .container p {
+  margin-left: 33.3333333333px;
+  display: inline-block;
+  color: blue;
+  font-size: 14.2857142857px;
+  font-weight: bold;
+}
+
+.item {
+  width: 600px;
+  height: 600px;
+  background-color: #ffcccc;
+  margin: 50px auto;
+  border: 2px solid green;
+}
+.item h2 {
+  text-align: right;
+  color: #80ff80;
+}
+.item .container {
+  width: 400px;
+  height: 300px;
+  border: 3.0303030303px solid green;
+  margin: 20px auto;
+}
+.item .container h1 {
+  text-align: center;
+  color: red;
+  opacity: 0.5;
+}
+.item .container .lead {
+  font-size: 10px;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+.item .container a {
+  text-decoration: none;
+  color: #ff9999;
+  border-radius: 25px;
+  border: 4px solid blue;
+}/*# sourceMappingURL=main.css.map */
