@@ -1,3 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: 220px 1fr 330px;
+}
+
+.container {
+  max-width: 1170px;
+  margin: auto;
+  border: 2px solid red;
+}
+
+aside a.logo {
+  display: block;
+  width: 140px;
+  height: 140px;
+  background-color: lightgreen;
+  margin: 0 auto;
+}
+aside nav {
+  border-top: 2px solid #ccc;
+  padding-left: 25px;
+  position: relative;
+}
+aside nav a {
+  display: block;
+  padding: 15px 0;
+}
+aside nav .container-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50px;
+  margin-top: -5px;
+  background-color: red;
+  border-radius: 10px;
+  width: 80px;
+  height: 20px;
+  font-size: 11px;
+  color: white;
+}
+
+main .submenu {
   background-color: aqua;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 200px;
+  gap: 25px 30px;
+}
+main .submenu a {
+  border: 2px solid blue;
+  padding: 20px;
+}
+main .submenu a:first-child {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/with_salmon.png");
+  background-repeat: round;
+  border-radius: 5px;
 }/*# sourceMappingURL=main.css.map */
