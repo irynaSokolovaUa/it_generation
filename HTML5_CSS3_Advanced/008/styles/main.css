@@ -1,20 +1,77 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "DIN_PRO";
+  src: url("/HTML5_CSS3_Advanced/008/fonts/DINPro.ttf");
+  /* Дополнительные свойства, такие как font-weight, font-style, могут быть указаны здесь */
+}
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  display: grid;
-  grid-template-columns: 220px 1fr 330px;
+  font-size: 24px;
 }
 
 .container {
   max-width: 1170px;
-  margin: auto;
-  border: 2px solid red;
+  margin: 0 auto;
+  background-color: #ddd;
+  border: 2px solid rgb(255, 28, 28);
 }
 
+.wrapper {
+  padding-left: 200px;
+  padding-right: 330px;
+}
+.wrapper .submenu {
+  background-color: aqua;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 200px);
+  gap: 25px 30px;
+}
+.wrapper .submenu a {
+  border: 2px solid blue;
+  padding: 20px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5));
+  background-repeat: round;
+  border-radius: 5px;
+  color: white;
+  padding-top: 150px;
+}
+.wrapper .submenu a:first-child {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/with_salmon.png");
+}
+.wrapper .submenu a:nth-child(2) {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/eel.png");
+}
+.wrapper .submenu a:nth-child(3) {
+  grid-column-start: 4;
+  grid-column-end: 4;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/no_meat.png");
+}
+.wrapper .submenu a:nth-child(4) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/fila.png");
+}
+.wrapper .submenu a:last-child {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/sell.png");
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+}
 aside a.logo {
   display: block;
   width: 140px;
@@ -46,21 +103,51 @@ aside nav .container-text {
   color: white;
 }
 
-main .submenu {
-  background-color: aqua;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 200px;
-  gap: 25px 30px;
+a {
+  text-decoration: none;
+  color: black;
 }
-main .submenu a {
-  border: 2px solid blue;
-  padding: 20px;
+
+.basket-and-map {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 330px;
 }
-main .submenu a:first-child {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/with_salmon.png");
-  background-repeat: round;
+
+.catalog__cards {
+  border: 2px solid yellow;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.catalog__cards .priceAndBuy {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
+}
+.catalog__cards img {
+  max-width: 100%;
+  height: auto;
+}
+.catalog__cards .btn-buy {
+  background-color: #F46D40;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
   border-radius: 5px;
+}
+
+.catalog__cards__card {
+  border: 2px solid rgb(0, 255, 38);
+  padding: 10px;
+  width: 30%;
 }/*# sourceMappingURL=main.css.map */

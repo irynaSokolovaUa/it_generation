@@ -1,0 +1,49 @@
+aside{
+    position: fixed ;
+    top: 0;
+    left: 0;
+    width: 200px;
+    a.logo{
+        display: block;
+        width: 140px;
+        height: 140px;
+        background-color: lightgreen;
+        margin: 0 auto;
+    }
+
+    nav{ 
+        border-top: 2px solid #ccc;
+        padding-left: 25px;
+        position: relative;
+        a{
+            display: block;
+            padding: 15px 0;
+            
+        }
+        .container-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 50px;
+            margin-top: -5px;
+            background-color: red;
+            border-radius: 10px;
+            width: 80px;
+            height: 20px;
+            font-size: 11px;
+            color: white;
+            
+          }
+        // p{
+        //     background-color: red;
+        //     border-radius: 10px;
+        //     width: 50px;
+        //     height: 20px;
+        //     align-items: center;
+
+
+        // }
+    }
+
+}

@@ -1,0 +1,55 @@
+.wrapper{
+    padding-left: 200px;
+    padding-right: 330px;
+    .submenu{
+        background-color: aqua;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 200px);
+        gap: 25px 30px;
+        // position: relative;
+
+
+
+        a{
+            border: 2px solid blue;
+            padding: 20px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5));
+            background-repeat: round;
+            border-radius: 5px;
+            color: white;
+            padding-top: 150px;
+            &:first-child{
+                grid-column-start: 1;
+                grid-column-end: 3;
+                background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/with_salmon.png");
+
+            }
+            &:nth-child(2){
+                grid-column-start: 3;
+                grid-column-end: 3;
+                background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/eel.png");
+            
+            }
+            &:nth-child(3){
+                grid-column-start: 4;
+                grid-column-end: 4;
+                background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/no_meat.png");
+            }
+            &:nth-child(4){
+                grid-column-start: 1;
+                grid-column-end: 3;
+                background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/fila.png");
+            }
+            &:last-child{
+                grid-column-start: 3;
+                grid-column-end: 5;
+                background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url("/HTML5_CSS3_Advanced/008/images/main/nav/sell.png");
+
+            }
+
+
+
+        }
+    }
+}

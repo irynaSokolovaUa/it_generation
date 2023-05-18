@@ -6,16 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/main.css">
+    <link href="https://fonts.cdnfonts.com/css/dinpro-bold" rel="stylesheet">
+
 </head>
 <body>
     <aside>
         <a href="" class="logo">IMGLOGO</a>
         <nav>
-            <a href="http://">Pizza</a> 
-            <a href="http://">Roll</a>
-            <a href="http://">Салатм</a>
-            <a href="http://">Супи</a>
-            <a href="http://">Корн доги</a>
+            <!-- // ["electronics","jewelery","men's clothing","women's clothing"] -->
+            <a href="#" data-category="electronics">electronics</a> 
+            <a href="#" data-category="jewelery">jewelery</a>
+            <a href="#" data-category="men's clothing">men's clothing</a>
+            <a href="#" data-category="women's clothing">women's clothing</a>
+            <!-- <a href="http://" data-category="electronics">Супи</a>
+            <a href="http://" data-category="electronics">Корн доги</a> -->
             <div class="container-text">
                 <p class="centered-text">НЕЗАБАРОМ</p>
               </div>
@@ -31,28 +35,60 @@
         </nav>
     </aside>
     <div class="wrapper">
-        <head>
+        <header>
             <div class="container">
                 HEADER
             </div>
-        </head>
+        </header>
         <main>
             <div class="container">
+                <div class="container catalog">
+                    <h1>SETS</h1>
+                    <select>
+                        <option value="1">defult</option>
+                        <option value="2">value2</option>
+                        <option value="3">value3</option>
+                        <option value="4">value4</option>
+                        <option value="5">value5</option>
+                        <option value="5"></option>
+                    </select>
+                    <div class="catalog__cards">
+                        <!-- <div class="catalog__cards__card ">
+                            <img src='./images/catalog/set/Rectangle_3.png' alt="">
+                            <b>salamon set</b>
+                            <span>1500 g. 30 pieces</span>
+                            <hr>
+                            <span class="card__price">1500 usd</span>
+                            <button class="btn-buy">BUY</button>
+                        </div>
+     -->
+                    </div>
+                </div>
+
+                </div>
                 <nav class="submenu">
                     <a href="http://">Чікєн</a>
-                    <a href="http://">Чікєн</a>
-                    <a href="http://">Чікєн</a>
-                    <a href="http://">Чікєн</a>
-                    <a href="http://">Чікєн</a>
-
-
-                    
+                    <a href="http://">Вугор</a>
+                    <a href="http://">Корн-дог</a>
+                    <a href="http://">Піцца</a>
+                    <a href="http://">Сашимі</a>
                 </nav>
+            </div>
+            <div class="container about">
+                <h2>Заказать суши в Харькове</h2>
+                <p>Ресторан “Суши и Лапша” предлагаем своим клиентам самые вкусные суши с доставкой на дом, приготовленные по классическим и адаптированным к европейской аудитории рецептам, а также собственным наработкам наших поваров. Мы ценим время наших клиентов, поэтому вы можете заказать суши в Харькове с доставкой на дом или в офис.
+                </p><br>
+                <p>В нашем меню более 20 видов суши:</p>
+                <li>Классические с сырым лососем, тунцом, окунем.</li>
+                <li>Экзотические с тигровой креветкой, морским гребешком.</li>
+                <li>икантные с копченым лососем, угрем.</li>
+                <p>В меню также представлены гунканы: с начинкой из красной икры и тобико, а также феликсы, где японский майонез сочетается с рыбой, морепродуктами, угрем. Любители острых блюд могут купить суши с соусом спайси. Популярные начинки — копченая курица, снежный краб, креветки, гребешки, тунец, лосось и окунь.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, omnis commodi! Placeat non quo blanditiis possimus sit atque totam officiis ab perferendis odio, iste illum est optio maxime recusandae reprehenderit aperiam, distinctio quam, animi rem rerum temporibus. Vero at eveniet quasi ex facilis repellendus ea ducimus voluptates provident tenetur eaque explicabo sapiente, beatae numquam, perspiciatis iure officiis aut corrupti earum saepe rem accusantium odio. Numquam rerum doloribus cumque quibusdam consectetur distinctio eligendi molestiae blanditiis aspernatur similique optio dolorem dolorum molestias odit id, accusamus velit cum eius in laboriosam aperiam sed libero impedit? Repudiandae quidem, similique rem quia repellendus commodi expedita?</p>
             </div>
         </main>
         <footer>
             <div class="container">
-                HEADER
+                HEADER flex box + imput number
             </div>
         </footer>
 
@@ -65,6 +101,8 @@
             MAP
         </div>
     </div>
+    <script src="./scripts/script.js"></script>
+
     
 </body>
 </html>

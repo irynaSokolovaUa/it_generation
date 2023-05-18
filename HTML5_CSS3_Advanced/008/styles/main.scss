@@ -1,88 +1,61 @@
-*{
-    box-sizing: border-box;
+@import 'fonts';
+// @import url('https://fonts.cdnfonts.com/css/dinpro-bold');
+@import 'common';
+@import 'submenu';
+@import 'footer';
+@import 'menu';
+
+
+a{
+    text-decoration: none;
+    color: black;
 }
 
-body{
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    display: grid;
-    grid-template-columns: 220px 1fr 330px;
+
+.basket-and-map{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 330px;
 
 }
 
-.container{
-    max-width: 1170px;
-    margin: auto;
-    border: 2px solid red;
-}
+.catalog__cards{
+    border: 2px solid yellow;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-aside{
-    a.logo{
-        display: block;
-        width: 140px;
-        height: 140px;
-        background-color: lightgreen;
-        margin: 0 auto;
+    .priceAndBuy {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-around;
     }
 
-    nav{ 
-        border-top: 2px solid #ccc;
-        padding-left: 25px;
-        position: relative;
-        a{
-            display: block;
-            padding: 15px 0;
-            
-        }
-        .container-text {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            left: 50px;
-            margin-top: -5px;
-            background-color: red;
-            border-radius: 10px;
-            width: 80px;
-            height: 20px;
-            font-size: 11px;
-            color: white;
-            
-          }
-        // p{
-        //     background-color: red;
-        //     border-radius: 10px;
-        //     width: 50px;
-        //     height: 20px;
-        //     align-items: center;
-
-
-        // }
+    img{
+        max-width: 100%;
+        height: auto;    
     }
 
+    .btn-buy {
+        background-color: #F46D40;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
 }
 
-main{
-    .submenu{
-        background-color: aqua;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 200px;
-        gap: 25px 30px;
-
-
-        a{
-            border: 2px solid blue;
-            padding: 20px;
-            &:first-child{
-                grid-column-start: 1;
-                grid-column-end: 3;
-                background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)),                  url("/HTML5_CSS3_Advanced/008/images/main/nav/with_salmon.png");
-                background-repeat: round;
-                border-radius: 5px;
-
-                
-            }
-        }
-    }
+.catalog__cards__card{
+    border: 2px solid rgb(0, 255, 38);
+    padding: 10px;
+    width: 30% ;
 }
