@@ -1,14 +1,36 @@
+const selectTag = document.querySelector("select");
+const ulTag = document.querySelector("ul");
+
+for(let i = 0; i < selectTag.options.length; i++){
+    const li =  document.createElement("li");
+    li.innerHTML = selectTag.options[i].innerHTML;
+    ulTag.append(li);
+}
+
+document.querySelector(".btn-select").addEventListener("click", function(){
+    console.log(this);
+    ulTag.classList.toggle("active");
+})
+ 
+
+
+document.querySelector(".more-info").addEventListener("click", function(){
+    document.querySelector(".about").classList.toggle("active")
+})
 
 class Router {
     constructor(
         pathToProduct,
         selectorContainer,
         linksMenu,
+        categoryConteiner,
     ) {
         this.container = document.querySelector(selectorContainer)
+        this.categoryConteiner = document.querySelector(categoryConteiner)
         this.menuLinks = document.querySelectorAll(linksMenu)
         this.takeData(pathToProduct)
-        this.createNavigation()
+        this.createNavigation() 
+        this.showCategory()
     }
 
     createNavigation() {
@@ -17,6 +39,7 @@ class Router {
                 e.preventDefault();
                 location.hash = "#" + link.dataset.category;
                 this.createCards(this.data);
+                this.showCategory();
             })
         })
 
@@ -31,11 +54,23 @@ class Router {
             }
             )
     }
+    showCategory(){
+        // this.categoryConteiner.querySelector("h1")
+        //     .innerHTML = ``;
+       if((location.hash).substring(1)){
+        this.categoryConteiner.style.display = "block ";
+
+        this.categoryConteiner.querySelector("h1")
+        .innerHTML = `${decodeURIComponent(location.hash).substring(1)}`;
+       } else {
+        this.categoryConteiner.style.display = "none";
+       }
+    }
 
     createCards(products) {
         this.container.innerHTML = "";
         products.forEach(product => {
-            console.log(product.category, "|", location.hash)
+            // console.log(product.category, "|", location.hash)
             if ("#" + encodeURIComponent(product.category) == location.hash) {
                 this.container.innerHTML += `
             <div class="catalog__cards__card">
@@ -58,7 +93,8 @@ class Router {
 const router = new Router(
     'https://fakestoreapi.com/products',
     '.catalog__cards',
-    'aside nav a'
+    'aside nav a',
+    ".catalog"
 
 );
 
