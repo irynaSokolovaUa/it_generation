@@ -1,13 +1,21 @@
 const selectTag = document.querySelector("select");
 const ulTag = document.querySelector("ul");
+const btnSelect = document.querySelector(".btn-select");
+
 
 for(let i = 0; i < selectTag.options.length; i++){
     const li =  document.createElement("li");
     li.innerHTML = selectTag.options[i].innerHTML;
+    li.addEventListener("click", ()=> {
+        selectTag.selectedIndex = i;
+        btnSelect.innerHTML = selectTag.value;
+        ulTag.classList.toggle("active");
+
+    } )
     ulTag.append(li);
 }
 
-document.querySelector(".btn-select").addEventListener("click", function(){
+btnSelect.addEventListener("click", function(){
     console.log(this);
     ulTag.classList.toggle("active");
 })
